@@ -5,20 +5,26 @@ export default function Monkeys() {
   const [loadingImageState, setLoadingImageState] = useState(false);
   const [predictedMonkey, setPredictedMonkey] = useState(null);
   const information = [
-    "First Monkey",
-    "Second Monkey",
-    "Third Monkey",
-    " FiruMonkey",
+    "mantled_howler",
+    "patas_monkey",
+    "bald_uakari",
+    "japanese_macaque",
+    "pygmy_marmoset",
+    "white_headed_capuchin",
+    "silvery_marmoset",
+    "common_squirrel_monkey",
+    "black_headed_night_monkey",
+    "nilgiri_langur",
   ];
   const nameOnIndex = [];
   async function getPredication() {
     var form = new FormData();
 
     form.append(selectedImage.name, selectedImage);
-    console.log(form+"form");
+    console.log(form + "form");
     let req = await axios.post("localhost:5000/", {
       imageFile: form,
-      headers: { "Content-Type": "images/jpeg" },
+      headers: { "Content-Type": "image/jpeg" },
     });
 
     console.log(req);
